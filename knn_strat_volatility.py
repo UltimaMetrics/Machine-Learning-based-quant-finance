@@ -32,6 +32,18 @@ VIX.isnull().sum()
 df=VIX
 
 
+
+#Unit root test
+from unitroot import stationarity
+
+stationarity(df['Close'])
+
+#Half life
+from HalfLife import estimate_half_life
+estimate_half_life(df['Close'])
+
+#Stationary for VIX and takes 18 days to revert to mean.
+
 plt.plot(df['Close'], color = 'cornflowerblue', linewidth=1.0, linestyle="-")
 
 

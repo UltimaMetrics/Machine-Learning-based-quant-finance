@@ -31,6 +31,15 @@ ETH = asset.history(period="4y")
 ETH.isnull().sum()
 df=ETH
 
+#Unit root test
+from unitroot import stationarity
+
+stationarity(df['Close'])
+
+#Half life
+from HalfLife import estimate_half_life
+estimate_half_life(df['Close'])
+
 
 plt.plot(df['Close'], color = 'cornflowerblue', linewidth=1.0, linestyle="-")
 
